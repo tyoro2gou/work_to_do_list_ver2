@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_075614) do
+ActiveRecord::Schema.define(version: 2020_03_01_054413) do
+
+  create_table "daytimes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "month_id", limit: 1, default: 0, null: false
+    t.integer "day_id", limit: 1, default: 0, null: false
+    t.integer "hour_id", limit: 1, default: 0, null: false
+    t.integer "minute_id", limit: 1, default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "daytime_id", null: false
+    t.integer "work_id", limit: 1, default: 0, null: false
+    t.string "name", null: false
+    t.string "adress"
+    t.text "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["daytime_id"], name: "index_tasks_on_daytime_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -25,4 +47,6 @@ ActiveRecord::Schema.define(version: 2020_02_27_075614) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tasks", "daytimes"
+  add_foreign_key "tasks", "users"
 end
