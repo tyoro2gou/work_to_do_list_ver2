@@ -6,21 +6,12 @@
 -#   ログインしていません
 -#   = link_to "新規登録", new_user_registration_path
 -#   = link_to "ログイン", new_user_session_path
-.header
-  .header__left
-    予定表
-  .header__right
-    - if user_signed_in?
-      = current_user.name
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
-    - else
-      = link_to "新規登録", new_user_registration_path, class: 'new-btn'
-      = link_to "ログイン", new_user_session_path, class: 'login-btn'
+= render "header"
 .contents
   .contents__left
     あなたのお仕事
     %br 分りやすく
   .contents__right
     - if user_signed_in?
-      = link_to "予定表へGO", '#', class: 'login-btn'
+      = link_to "予定表へGO", tasks_path, class: 'login-btn'
     - else

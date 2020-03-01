@@ -1,0 +1,12 @@
+.header
+  .header__left
+    予定表
+  .header__right
+    - if user_signed_in?
+      = current_user.name
+      .header__right-box
+        = link_to "予定を書く", new_task_path
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      = link_to "新規登録", new_user_registration_path, class: 'new-btn'
+      = link_to "ログイン", new_user_session_path, class: 'login-btn'
