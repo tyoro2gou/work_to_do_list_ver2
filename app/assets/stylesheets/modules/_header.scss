@@ -1,0 +1,11 @@
+.header {
+  background-color: dodgerblue;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 80px;
+  align-items: center;
+  &__right {
+    display: flex;
+  }
+}
