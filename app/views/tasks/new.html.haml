@@ -1,27 +1,33 @@
 -# .contentground
 .formBox
   = form_for @task do |f|
-    = f.fields_for :daytime do |i|
-      = i.collection_select :month_id, Month.all, :id, :name
-      = i.collection_select :day_id, Day.all, :id, :name
-      = i.collection_select :hour_id, Hour.all, :id, :name
-      = i.collection_select :minute_id, Minute.all, :id, :name
-    = f.label :work_id, class: "workfield" do
-      内容
-      %span
-        必須
-        = f.collection_select :work_id, Work.all, :id, :name
-    = f.label :name, class: "namefield" do
-      お客様名
-      %span
-        必須
-        = f.text_field :name, class: "name-form", placeholder: "氏名"
-    = f.label :adress, class: "adressfield" do
-      住所
-      %span
-        = f.text_field :adress, class: "adress-form", placeholder: "住所"
-    = f.label :remark, class: "remarkfield" do
-      備考欄
-      %span
-        = f.text_area :remark, class: "remark-form", size: "30x10"
-    = f.submit "保存", class: "save-btn"  
+    .daytime-box
+      = f.fields_for :daytime do |i|
+        = i.collection_select :month_id, Month.all, :id, :name
+        = i.collection_select :day_id, Day.all, :id, :name
+        = i.collection_select :hour_id, Hour.all, :id, :name
+        = i.collection_select :minute_id, Minute.all, :id, :name
+    .work-box
+      = f.label :work_id, class: "workfield" do
+        内容
+        %span
+          必須
+          = f.collection_select :work_id, Work.all, :id, :name
+    .name-box
+      = f.label :name, class: "namefield" do
+        お客様名
+        %span
+          必須
+          = f.text_field :name, class: "name-form", placeholder: "氏名"
+    .adress-box
+      = f.label :adress, class: "adressfield" do
+        住所
+        %span
+          = f.text_field :adress, class: "adress-form", placeholder: "住所"
+    .remark-box
+      = f.label :remark, class: "remarkfield" do
+        備考欄
+        %span
+          = f.text_area :remark, class: "remark-form", size: "30x10"
+    .save-box
+      = f.submit "保存", class: "save-btn"

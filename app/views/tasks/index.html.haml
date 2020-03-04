@@ -1,2 +1,10 @@
 = render "home/header"
-aaaaa
+- @tasks.each do |task|
+  = task.name
+  = task.adress
+  = task.remark
+  = task.work.name
+  = task.daytime.month.name
+  = task.daytime.day.name
+  = task.daytime.hour.name
+  = task.daytime.minute.name
