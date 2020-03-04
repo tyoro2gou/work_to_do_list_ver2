@@ -1,7 +1,8 @@
 class Daytime < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :month
-  belongs_to_active_hash :daytime
+  belongs_to_active_hash :day
   belongs_to_active_hash :hour
   belongs_to_active_hash :minute
-  has_one :task
+  belongs_to :task ,optional: true
 end
