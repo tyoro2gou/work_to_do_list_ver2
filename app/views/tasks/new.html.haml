@@ -1,33 +1,49 @@
--# .contentground
-.formBox
-  = form_for @task do |f|
-    .daytime-box
-      = f.fields_for :daytime do |i|
-        = i.collection_select :month_id, Month.all, :id, :name
-        = i.collection_select :day_id, Day.all, :id, :name
-        = i.collection_select :hour_id, Hour.all, :id, :name
-        = i.collection_select :minute_id, Minute.all, :id, :name
-    .work-box
-      = f.label :work_id, class: "workfield" do
-        内容
-        %span
-          必須
-          = f.collection_select :work_id, Work.all, :id, :name
-    .name-box
-      = f.label :name, class: "namefield" do
-        お客様名
-        %span
-          必須
+.contentground
+  .header-new
+    .header-new__left
+      予定表
+    .header-new__right
+      予定入力フォーム
+  .formBox
+    = form_for @task do |f|
+      .daytime-box
+        = f.fields_for :daytime do |i|
+          .daytime-box__frist
+            = i.label "予定日(必須)"
+            .daytime-box__frist-box
+              .daytime-box__frist-box--month
+                = i.collection_select :month_id, Month.all, :id, :name, include_blank: true
+                = i.label :month_id, "月"
+              .daytime-box__frist-box--day
+                = i.collection_select :day_id, Day.all, :id, :name, include_blank: true
+                = i.label :day_id, "日"
+          .daytime-box__second
+            = i.label "予定時刻(必須)"
+            .daytime-box__second-box
+              .daytime-box__second-box--hour
+                = i.collection_select :hour_id, Hour.all, :id, :name, include_blank: true
+                = i.label :hour_id, "時"
+              .daytime-box__second-box--minute
+                = i.collection_select :minute_id, Minute.all, :id, :name, include_blank: true
+                = i.label :minute_id, "分"
+      .work-box
+        = f.label "内容(必須)", class: "workfield"
+        .work-box__content
+          = f.collection_select :work_id, Work.all, :id, :name, include_blank: true
+      .name-box
+        = f.label "お客様名(必須)", class: "namefield"
+        .name-box__content
           = f.text_field :name, class: "name-form", placeholder: "氏名"
-    .adress-box
-      = f.label :adress, class: "adressfield" do
-        住所
-        %span
+      .adress-box
+        = f.label "住所(任意)", class: "adressfield"
+        .adress-box__content
           = f.text_field :adress, class: "adress-form", placeholder: "住所"
-    .remark-box
-      = f.label :remark, class: "remarkfield" do
-        備考欄
-        %span
-          = f.text_area :remark, class: "remark-form", size: "30x10"
-    .save-box
-      = f.submit "保存", class: "save-btn"
+      .remark-box
+        = f.label "備考欄", class: "remarkfield"
+        .remark-box__content
+          = f.text_area :remark, class: "remark-form", size: "30x10", placeholder: "任意"
+      .saveorcancel-box
+        .save-box
+          = f.submit "保存", class: "save-btn"
+        .cancel-box
+          = link_to "キャンセル", tasks_path, class: 'cancel-btn'
