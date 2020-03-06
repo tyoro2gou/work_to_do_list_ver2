@@ -4,5 +4,142 @@
   background-color: #dedede;
 	background-image:
 	linear-gradient(#ecebeb 50%, transparent 50%, transparent);
-	background-size: 10px 10px;
+  background-size: 10px 10px;
+  // position: absolute;
+  align-items: center;
+  margin: 0 auto;
+  text-align:left;
+  z-index: 1;
+}
+.header-new {
+  color: white;
+  background-color: dodgerblue;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 80px;
+  align-items: center;
+  &__right {
+    margin-right: 50px;
+    line-height: 40px;
+    font-size: 40px;
+  }
+}
+.formBox {
+  // position: relative;
+  margin: 0 auto;
+  background-color:white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-size: 20px;
+  border: solid 1px gray;
+  z-index: 2;
+  .daytime-box {
+    &__frist {
+      border-bottom: gray dotted 1px;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 10px;
+      padding-top: 20px;
+      padding-bottom: 10px;
+      .daytime-box__frist-box {
+        display: flex;
+        margin-right: 800px;
+      }
+    }
+    &__second {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: gray dotted 1px;
+      padding-left: 10px;
+      padding-top: 20px;
+      padding-bottom: 10px;
+      .daytime-box__second-box {
+        display: flex;
+        margin-right: 800px;
+      }
+    }
+  }
+  .work-box {
+    line-height: 20px;
+    border-bottom: gray dotted 1px;
+    display: flex;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    &__content {
+      line-height: 20px;
+      margin-left: 185px;
+    }
+  }
+  .name-box {
+    display: flex;
+    border-bottom: gray dotted 1px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    &__content {
+      line-height: 20px;
+      margin-left: 145px;
+    }
+  }
+  .adress-box {
+    display: flex;
+    border-bottom: gray dotted 1px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    &__content {
+      line-height: 20px;
+      margin-left: 185px;
+      .adress-form {
+        width: 500px;
+      }
+    }
+  }
+  .remark-box {
+    display: flex;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    &__content {
+      margin-left: 215px;
+    }
+  }
+  .saveorcancel-box {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .save-box {
+      text-align: center;
+      .save-btn {
+        line-height: 50px;
+        width: 100px;
+        height: 50px;
+        font-size: 30px;
+        color: gray;
+        background-color: lightskyblue;
+        cursor: pointer;
+        border-radius: 20px;
+      }
+    }
+    .cancel-box {
+      text-align: center;
+      .cancel-btn {
+        padding: 7px;
+        line-height: 50px;
+        width: 100px;
+        height: 100px;
+        font-size: 30px;
+        color: gray;
+        background-color:#ff7a7a;
+        cursor: pointer;
+        border-radius: 20px;
+      }
+    }
+  }
 }
